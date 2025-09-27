@@ -7,13 +7,20 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Distance Converter App.");
 
-        double miles = 10;
-        double kilometers = convMiToKm(miles);
+        double mi = 10;
+        double km = 20;
+        double kilometers = convMiToKm(mi);
+        double miles = convKmToMi(km);
 
-        System.out.println("Result is: " +  kilometers + " km.");
+        System.out.println(mi + " miles is: " +  kilometers + " kilometers.");
+        System.out.println(km + " kilometers is: " +  miles + " miles.");
     }
 
     private static double convMiToKm(double miles) {
-        return miles * CONV_MI_TO_KM;
+        return Math.round((miles * CONV_MI_TO_KM) * 1000.0) / 1000.0;
+    }
+
+    private static double convKmToMi(double kilometers) {
+        return Math.round((kilometers / CONV_MI_TO_KM)  * 1000.0) / 1000.0;
     }
 }
